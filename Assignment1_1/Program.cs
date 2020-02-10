@@ -1,6 +1,8 @@
-﻿
-
-
+﻿/* Saahil Rasheed
+ * U85555983
+ * ISM 6225 Distributed Information Systems
+ * Assignment 1
+*/
 using System;
 using System.Collections.Generic;
 
@@ -10,36 +12,37 @@ namespace Assignment1_1
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
+            
             int n = 5;
+            Console.Write("The pattern is: ");
+            PrintPattern(n);
 
-            //PrintPattern(n);
+            Console.WriteLine();
 
             int n2 = 6;
-            //PrintSeries(n2);
+            Console.Write("The series is: ");
+            PrintSeries(n2);
+
+            Console.WriteLine();
 
             string s = "09:15:35PM";
             string t = UsfTime(s);
-            Console.WriteLine(t);
+            Console.WriteLine("The time on planet USF is " + t);
 
-
-            //UsfNumbers(110, 11);
+            Console.WriteLine();
 
             
+            UsfNumbers(110,11);
 
+            Console.WriteLine();
 
-
-
-            //if (checkPalindromePair(vect) == true)
-            //Console.WriteLine(vect);
-
-
-
+            Console.WriteLine("The palindrome words followed by their index locations in the arrays are: ");
             string[] words = new string[] { "abcd", "dcba", "lls", "s", "sssll" };
-            //PalindromePairs(words);
+            PalindromePairs(words);
 
+            Console.WriteLine();
 
-            //Stones(7);
+            Stones(7);
 
         }
 
@@ -68,8 +71,9 @@ namespace Assignment1_1
                 {
                     j += 1;
                     k += j;
-                    Console.Write(k + " ");
+                    Console.Write(k + " ");                   
                 }
+                Console.WriteLine();
             }
             catch
             {
@@ -83,31 +87,28 @@ namespace Assignment1_1
 
         public static string UsfTime(string s)
         {
-             
-                //Let us convert it into USF time
-                //Splitting the string into hours minutes and seconds
+            string usf = "";
+            try
+            {
+                //Splitting the input string taking colon/: as the separator
                 String[] strlist = s.Split(":");
                 int totalSeconds = 0;
-                string usf = "";
-                //Parsing string into integer to denote x, y and z as the variables containing hours, minutes and seconds respectively
-                int x = int.Parse(strlist[0]);
-                int y = int.Parse(strlist[1]);
+                
+                //Storing earth's hours, minutes and seconds into h, m and sec.
+                int h = int.Parse(strlist[0]);
+                int m = int.Parse(strlist[1]);
                 String last = strlist[strlist.Length - 1];
-                int z = int.Parse(strlist[2].Substring(0, 2));
-                //int z = int.Parse(last.Substring(0,last.Length/2));
-                //String amPm = int.Parse(strlist[2].Substring(2));
-                //if the time is in PM we convert it into 24 hours format. i.e addition of 12 to x.
-                //if (strlist[2].Substring(2) == "pm" && x != 0)
-                
-                if(strlist[2].Substring(2) == "PM" && x != 0)               
-                totalSeconds = (x * 60 * 60 + (12 * 60 * 60)) + (y * 60) + z;
+                int sec = int.Parse(strlist[2].Substring(0, 2));
 
-                if (x == 12)
-                totalSeconds = (12 * 60 * 60) + (y * 60) + z ;
-            
-                
-                if(strlist[2].Substring(2) == "AM" && x != 0)
-                totalSeconds = (x * 60 * 60 + (12 * 60 * 60)) + (y * 60) + z;
+                if (strlist[2].Substring(2) == "PM" && h != 0)
+                    totalSeconds = (h * 60 * 60 + (12 * 60 * 60)) + (m * 60) + sec;
+
+                if (h == 12)
+                    totalSeconds = (12 * 60 * 60) + (m * 60) + sec;
+
+
+                if (strlist[2].Substring(2) == "AM" && h != 0)
+                    totalSeconds = (h * 60 * 60) + (m * 60) + sec;
                 //if (x < 12)
 
                 double u = (double)totalSeconds / 2700;
@@ -115,12 +116,13 @@ namespace Assignment1_1
                 double s2 = s1 * 60;
                 double f = s2 - (int)s2;
                 double f1 = f * 45;
-                usf = (int)u + ":" + (int)s2 + ":" + (int)f1;
-
-
-                
+                usf = (int)u + ":" + (int)s2 + ":" + string.Format("{0:0}",f1);
+            }
+            catch
+            {
+                Console.WriteLine("Exception Occured while computing UsfTime");
+            }                  
                 return usf;
-
         }
         
 
@@ -177,9 +179,7 @@ namespace Assignment1_1
             // with its corresponding character from last 
             for (int i = 0; i < len / 2; i++)
                 if (str[i] != str[len - i - 1])
-                    return false;
-
-            
+                    return false;            
             return true;
             
         }
@@ -204,12 +204,7 @@ namespace Assignment1_1
 
                         // check if the concatenated string is 
                         // palindrome 
-                        if (isPalindrome(check_str) == true)
-                        {
-                            //int ind1 = Array.IndexOf(words, isPalindrome(check_str));
-                            //Console.Write(words[i] + " " + words[j]);
-                            //Console.Write(ind1);
-                        }
+                        
                         check_str = words[j] + words[i];
 
                         // check if the concatenated string is 
@@ -226,28 +221,16 @@ namespace Assignment1_1
             catch
             {
 
-                Console.WriteLine("Exception occured while computing     PalindromePairs()");
+                Console.WriteLine("Exception occured while computing PalindromePairs()");
             }
         }
 
 
         private static void Stones(int n4)
         {
-
-            //1 means winning the game
-            //0 means losing the game
-
-
-            //int[] pos = new int[200];
-            //findStates(pos);
-
-            //if (pos[n4] == 1)
-            //    Console.Write("p1 wins");
-            //else
-            //    Console.Write("p2 wins"); ;
             if (n4 % 4 != 0)
             {
-                Console.Write("P1 wins");
+                Console.Write("Player 1 wins!");
                 int size = 100;
                 int[] arr = new int[size];
 
@@ -255,20 +238,21 @@ namespace Assignment1_1
                 printCompositions(arr, n4, 0);
             }
             else
-                Console.Write("P2 wins");
+                Console.Write("Player 2 wins.");
             
         }
 
+        //to print the total number of ways can P1 win. I decided to use print permutation/combinations of our input n4.
         static void printCompositions(int[] arr, int n, int i)
         {
-            int MAX_POINT = 3;
+            int max = 3;
             if (n == 0)
             {
                 printArray(arr, i);
             }
             else if (n > 0)
             {
-                for (int k = 1; k <= MAX_POINT; k++)
+                for (int k = 1; k <= max; k++)
                 {
                     arr[i] = k;
                     printCompositions(arr, n - k, i + 1);
@@ -289,40 +273,5 @@ namespace Assignment1_1
             Console.Write("]");
             Console.WriteLine();
         }
-
-
-
-
-
-
-
-        static void findStates(int[] position)
-        {
-            position[1] = 1;
-            position[2] = 1;
-            position[3] = 1;
-            position[4] = 0;
-            position[5] = 1;
-            position[6] = 1;
-            position[7] = 1;
-            position[8] = 0;
-            for (int i = 9; i < 100; i++)
-            {
-                if (position[i - 1] != 1 || position[i - 2] != 1 || position[i - 3] != 1)
-                {
-                    position[i] = 1;
-                    //Console.Write(position[i]);
-                }
-                else
-                {
-                    position[i] = 0;
-                    //Console.Write(position[i]);
-                }
-            }
-            
-        }
-
-        
-
     }
 }
