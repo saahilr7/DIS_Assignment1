@@ -1,0 +1,11 @@
+C:\Users\saahi\source\repos\Assignment1_1\Assignment1_1\bin\Debug\netcoreapp3.1\Assignment1_1.exe
+C:\Users\saahi\source\repos\Assignment1_1\Assignment1_1\bin\Debug\netcoreapp3.1\Assignment1_1.deps.json
+C:\Users\saahi\source\repos\Assignment1_1\Assignment1_1\bin\Debug\netcoreapp3.1\Assignment1_1.runtimeconfig.json
+C:\Users\saahi\source\repos\Assignment1_1\Assignment1_1\bin\Debug\netcoreapp3.1\Assignment1_1.runtimeconfig.dev.json
+C:\Users\saahi\source\repos\Assignment1_1\Assignment1_1\bin\Debug\netcoreapp3.1\Assignment1_1.dll
+C:\Users\saahi\source\repos\Assignment1_1\Assignment1_1\bin\Debug\netcoreapp3.1\Assignment1_1.pdb
+C:\Users\saahi\source\repos\Assignment1_1\Assignment1_1\obj\Debug\netcoreapp3.1\Assignment1_1.csprojAssemblyReference.cache
+C:\Users\saahi\source\repos\Assignment1_1\Assignment1_1\obj\Debug\netcoreapp3.1\Assignment1_1.AssemblyInfoInputs.cache
+C:\Users\saahi\source\repos\Assignment1_1\Assignment1_1\obj\Debug\netcoreapp3.1\Assignment1_1.AssemblyInfo.cs
+C:\Users\saahi\source\repos\Assignment1_1\Assignment1_1\obj\Debug\netcoreapp3.1\Assignment1_1.dll
+C:\Users\saahi\source\repos\Assignment1_1\Assignment1_1\obj\Debug\netcoreapp3.1\Assignment1_1.pdb
